@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import AddInventory from '../views/inventory/AddInventory.vue'
 import AddCategories from '../views/inventory/AddCategories.vue';
+import NotFound from '../views/NotFound.vue';
 import store from '../store/index.js';
 
 
@@ -23,6 +24,7 @@ const routes = [
 		component: AddCategories,
 		meta: { requiresAuth: true },
 	},
+	{ path: '/:notFound(.*)', component: NotFound },
 ];
 
 const router = createRouter({
