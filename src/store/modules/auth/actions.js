@@ -9,6 +9,7 @@ export default {
 					email: payload.email,
 					password: payload.password,
 					returnSecureToken: true,
+					displayName: payload.name,
 				}),
 			}
 		);
@@ -21,14 +22,15 @@ export default {
 		const expiresIn = +responseData.expiresIn * 1000;
 		// const expiresIn = 5000;
 		const expirationDate = new Date().getTime() + expiresIn;
-
 		localStorage.setItem('token', responseData.idToken);
 		localStorage.setItem('userId', responseData.localId);
 		localStorage.setItem('tokenExpiration', expirationDate);
+		localStorage.setItem('name', responseData.displayName);
 		context.commit('setUser', {
 			token: responseData.idToken,
 			userId: responseData.localId,
 			email: responseData.email,
+			name: responseData.displayName
 		});
 	},
 	async signIn(context, payload) {
@@ -55,6 +57,9 @@ export default {
 		localStorage.setItem('token', responseData.idToken);
 		localStorage.setItem('userId', responseData.localId);
 		localStorage.setItem('tokenExpiration', expirationDate);
+		localStorage.setItem('email', responseData.email);
+		localStorage.setItem('name', responseData.displayName);
+
 
 		timer = setTimeout(() => {
 			context.dispatch('autoLogout');
@@ -64,12 +69,16 @@ export default {
 			token: responseData.idToken,
 			userId: responseData.localId,
 			email: responseData.email,
+			name: responseData.displayName
 		});
 	},
 	logout(context) {
 		localStorage.removeItem('token');
 		localStorage.removeItem('userId');
 		localStorage.removeItem('tokenExpiration');
+		localStorage.removeItem('email')
+		localStorage.removeItem('name');
+
 
 		clearTimeout(timer);
 
@@ -79,12 +88,12 @@ export default {
 			email: null
 		});
 	},
-	//////// need to set up auto login
 	tryLogin(context,) {
 		const token = localStorage.getItem('token');
 		const userId = localStorage.getItem('userId');
 		const tokenExpiration = localStorage.getItem('tokenExpiration');
 		const email = localStorage.getItem('email');
+		const name = localStorage.getItem('name')
 
 
 		const expiresIn = +tokenExpiration - new Date().getTime();
@@ -97,11 +106,12 @@ export default {
 			context.dispatch('autoLogout');
 		}, expiresIn);
 
-		if (userId && email ) {
+		if (userId && token ) {
 			context.commit('setUser', {
 				token: token,
 				userId: userId,
-				email: email
+				email: email,
+				name: name
 			});
 		}
 	},

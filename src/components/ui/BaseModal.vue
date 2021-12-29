@@ -1,8 +1,8 @@
 <template>
 	<teleport to="body">
 		<div v-if="show" @click="tryClose" class="backdrop"></div>
-		<dialog open v-if="show" class="text-center bg-dark">
-			<header v-if="title" class="text-secondary">
+		<dialog open v-if="show" class="text-center">
+			<header>
 				<slot name="header">
 					<h2 class="d-inline">{{ title }}</h2>
 					<button
@@ -64,7 +64,7 @@ export default {
 
 dialog {
 	position: fixed;
-	top: center;
+	top: 10vh;
 	left: 5%;
 	width: 90%;
 	z-index: 100;
@@ -73,7 +73,7 @@ dialog {
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
-	background-color: white;
+	background-color: var(--dark-3);
 	border-radius: 5px;
 	-webkit-animation: slide-in-top .5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	animation: slide-in-top .5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -106,7 +106,7 @@ dialog {
 }
 
 header {
-	color: white;
+	color: var(--main-b);
 	width: 100%;
 	padding: 1rem;
 }

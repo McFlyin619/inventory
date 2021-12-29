@@ -5,4 +5,7 @@ export default {
 	didAutoLogout(state) {
 		return state.didAutoLogout;
 	},
+	getUserName(state) {
+		return state.name
+	}
 };
