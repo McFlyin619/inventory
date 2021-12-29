@@ -60,6 +60,9 @@ export default {
 }
 
 .table {
-	background-color: var(--dark-3);
+	background-color: var(--dark-3) !important;
+}
+tr:hover {
+	background-color: var(--dark-1) !important;
 }
 </style>
