@@ -118,7 +118,7 @@ header h2 {
 section {
 	padding: 1rem;
 	max-height: calc(100vh - 210px);
-	overflow-y: auto;
+	/* overflow-y: auto; */
 }
 
 menu {

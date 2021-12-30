@@ -1,8 +1,9 @@
 <template>
 	<div>
+		<h1 class="main-b mb-5">Edit Current Stock</h1>
 		<form @submit.prevent="changeInventory">
-			<div class="row mb-2">
-				<div class="col-4">
+			<div class="row mb-2 p-0">
+				<div class="col-md-4 mb-2">
 					<div class="form-floating">
 						<select disabled class="form-select" id="inventoryCategory"  v-model.trim="newInventory.category">
 							<option selected>{{newInventory.category}}</option>
@@ -11,13 +12,13 @@
 						<label class="form-label text-end" for="inventoryCategory">Category</label>
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-md-4 mb-2">
 					<div class="form-floating">
 						<input disabled type="text" id="inventoryName" class="form-control" v-model.trim="newInventory.name" />
 						<label class="form-label text-end" for="inventoryName">Product Name</label>
 					</div>
 				</div>
-				<div class="col-2">
+				<div class="col-md-2 mb-2">
 					<div class="form-floating">
 						<input
 							type="number"
@@ -28,7 +29,7 @@
 						<label class="form-label text-end" for="inventoryName">Current Stock</label>
 					</div>
 				</div>
-				<div class="col-2">
+				<div class="col-md-2 mb-2">
 					<div class="form-floating">
 						<input
 						disabled
@@ -37,7 +38,7 @@
 							class="form-control"
 							v-model.trim="newInventory.countTotal"
 						/>
-						<label class="form-label text-end" for="inventoryName">Stock Total</label>
+						<label class="form-label text-end" for="inventoryName">Allotted Stock</label>
 					</div>
 				</div>
 			</div>

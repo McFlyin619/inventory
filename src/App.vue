@@ -24,7 +24,6 @@ export default {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-	color: #2c3e50;
 }
 .form-floating label {
 	color: #fff !important;
@@ -58,6 +57,23 @@ export default {
 	box-shadow: 0 1px 0 0 var(--main-b)!important;
 	color: var(--main-b)!important;
 }
+
+.form-outline label.active {
+	color: var(--main-b) !important;
+}
+
+.form-outline input {
+	color: var(--main-b) !important;
+	border: 0.5px solid var(--main-b) !important;
+	background-color: var(--dark-3);
+}
+
+/* .form-outline input:focus {
+	border: 3px solid var(--main-b) !important;
+	box-shadow: 0 1px 0 0 var(--main-b) !important;
+	color: var(--main-b) !important;
+	background-color: var(--dark-3);
+} */
 
 .table {
 	background-color: var(--dark-3) !important;

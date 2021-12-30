@@ -3,7 +3,7 @@
 		<base-modal :show="showLoginForm" @close="close">
 			<login-form @close="close"></login-form>
 		</base-modal>
-		<nav class="navbar navbar-expand-lg sticky-top" >
+		<nav class="navbar navbar-expand-lg" >
 			<!-- Container wrapper -->
 			<div class="container-fluid">
 				<!-- Toggle button -->
@@ -20,7 +20,7 @@
 				</button>
 
 				<!-- Collapsible wrapper -->
-				<div class="collapse navbar-collapse d-flex align-items-center" id="navbarRightAlignExample">
+				<div class="collapse navbar-collapse " id="navbarRightAlignExample">
 					<!-- Left links -->
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li v-if="isAuth" class="nav-item">
@@ -51,7 +51,7 @@
 								Hi, {{ userName }}
 							</a>
 							<!-- Dropdown menu -->
-							<ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDropdown">
+							<ul class="dropdown-menu dropdown-menu-end text-center bg-dark-1" aria-labelledby="navbarDropdown">
 								<li>
 									<a class="dropdown-item nav-link-1" href="#">Action</a>
 								</li>
