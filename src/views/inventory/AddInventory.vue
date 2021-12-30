@@ -1,8 +1,8 @@
 <template>
 	<div>
+		<inventory-table v-if="categories.length > 0" :categories="categories" class="mt-5 mb-5"></inventory-table>
 		<inventory-form v-if="categories.length > 0" @added="watchCount" :categories="categories" class="border-bottom pb-5"></inventory-form>
 		<h1 v-else class="main-b mt-5">Please add a category <router-link class="text-white-50" to="/categories">here</router-link> to begin</h1>
-		<inventory-table v-if="categories.length > 0" class="mt-5 mb-5"></inventory-table>
 	</div>
 </template>
 

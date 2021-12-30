@@ -23,7 +23,7 @@ export default {
 			inventoryCategory: payload.inventory.category,
 			inventoryCount: payload.inventory.count,
 			inventoryCountTotal: payload.inventory.countTotal,
-			inventoryName:payload.inventory.inventoryName
+			inventoryName:payload.inventory.name
 		};
 		const response = await fetch(`https://inventory-beb75-default-rtdb.firebaseio.com/inventory/${id}/items/${index}.json`, {
 			method: 'PATCH',

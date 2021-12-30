@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 <template>
 	<div class="container">
 		<base-modal :show="!!error" title="An error occurred" @close="handleError">
@@ -5,7 +6,9 @@
 		</base-modal>
 		<base-modal :show="showChangeStock" @close="showChangeStock = false">
 			<change-inventory-form
+				:mode="mode"
 				:editInventory="editInventory"
+				:categories="categories"
 				@edited-inventory="changeStock"
 				@close="showChangeStock = false"
 			></change-inventory-form>
@@ -22,14 +25,15 @@
 							class="form-control text-main-b"
 							id="searchInventory"
 							@keyup="searchInventory"
-							
 						/>
-						<label class="form-label text-white-50 text-end" for="searchInventory">Search category and product</label>
+						<label class="form-label text-white-50 text-end" for="searchInventory"
+							>Search category and product</label
+						>
 					</div>
 				</div>
 			</div>
-			<div class="card-body overflow-auto">
-				<table class="table table-responsive table-sm" id="inventoryTable">
+			<div class="card-body overflow-y-auto">
+				<table class="table table-sm" id="inventoryTable">
 					<thead>
 						<tr class="text-white-50">
 							<th scope="col">#</th>
@@ -83,7 +87,7 @@
 								</a>
 							</td>
 							<td>
-								<a role="button" class="me-3">
+								<a @click="editStock(i)" role="button" class="me-3">
 									<i class="far fa-edit text-main-b"></i>
 								</a>
 							</td>
@@ -98,6 +102,7 @@
 <script>
 import ChangeInventoryForm from '@/components/inventory/ChangeInventoryForm.vue';
 export default {
+	props: ['categories'],
 	components: {
 		ChangeInventoryForm,
 	},
@@ -107,6 +112,7 @@ export default {
 			editInventory: null,
 			error: null,
 			compKey: 0,
+			mode: null,
 		};
 	},
 	created() {
@@ -151,8 +157,14 @@ export default {
 			}
 		},
 		changeStockCount(inventory) {
+			this.mode = false
 			this.editInventory = inventory;
 			this.showChangeStock = true;
+		},
+		editStock(inventory) {
+			this.mode = true
+			this.editInventory = inventory;
+			this.showChangeStock = true
 		},
 		async changeStock(inventory) {
 			const payload = {
@@ -179,4 +191,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
