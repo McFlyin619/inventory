@@ -77,19 +77,16 @@
 					<a class="sidenav-link"><span>Inventory</span></a>
 					<ul class="sidenav-collapse show">
 						<li class="sidenav-item">
-							<router-link to="/add-inventory" class="sidenav-link">Inventory</router-link>
+							<router-link to="/add-inventory" class="sidenav-link">Stock</router-link>
 						</li>
 						<li class="sidenav-item">
-							<a class="sidenav-link">Use Stock</a>
+							<router-link to="/categories" class="sidenav-link">Categories</router-link>
 						</li>
 					</ul>
 				</li>
 				<li class="sidenav-item">
 					<a class="sidenav-link"><span>Settings</span></a>
 					<ul class="sidenav-collapse">
-						<li class="sidenav-item">
-							<router-link to="/categories" class="sidenav-link">Categories</router-link>
-						</li>
 						<li class="sidenav-item">
 							<a class="sidenav-link">Link 5</a>
 						</li>
