@@ -155,7 +155,6 @@ export default {
 			this.showChangeStock = true;
 		},
 		async changeStock(inventory) {
-			console.log(inventory);
 			const payload = {
 				inventory: inventory,
 			};

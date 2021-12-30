@@ -17,7 +17,6 @@ export default {
 		context.commit('addStateInventory', inPayload);
 	},
 	async updateInventory(context, payload) {
-		console.log(payload)
 		const id = payload.inventory.id
 		const index = payload.inventory.itemIndex
 		const inPayload = {
